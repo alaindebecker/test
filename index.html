@@ -8,13 +8,35 @@ This is a repo to test github projects.
 
 <div>You see index.html.</div>
 <button onclick="button(event)">Button</button>
+<button onclick="position(event)">Position</button>
 
 <div id="output"></div>
 </body>
 
 <script>
+put = function(text){
+	document.getElementById("output").innerHTML += text+"<br>"
+}
 button = function(event){
 	console.log("Button clicked")
-	document.getElementById("output").innerHTML = "Button clicked"
+	put("Button clicked")
 }
+
+p = function(){
+	put("position : ")
+	put(" - latitude  : "+lat)
+	put(" - longitude : "+lgt)
+	put(" - time      :" +time.toISOString())
+}
+
+position = function(){
+	navigator.geolocation.getCurrentPosition(function(pos){
+		lat  = pos.coords.latitude
+		lgt  = pos.coords.longitude
+		time = new Date(pos.timestamp)
+		p()
+	})
+}
+
+position()
 </script>
