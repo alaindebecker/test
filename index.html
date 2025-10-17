@@ -1,5 +1,20 @@
-# Test
+<!DOCTYPE html>
 
+<style></style>
+
+<body>
+<h1>Test</h1>
 This is a repo to test github projects.
 
-You see index.html.
+<div>You see index.html.</div>
+<button onclick="button(event)">Button</button>
+
+<div id="output"></div>
+</body>
+
+<script>
+button = function(event){
+	console.log("Button clicked")
+	document.getElementById("output").innerHTML = "Button clicked"
+}
+</script>
